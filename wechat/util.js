@@ -13,7 +13,7 @@ exports.parseXMLAsync = function (xml) {
             else resolve(content)
         })
     })
-}
+};
 
 function formatMessage(result) {
     var message = {}
@@ -54,8 +54,9 @@ exports.formatMessage = formatMessage
 exports.tpl = function(content,message) {
     var info = {}
     var type = 'text'
-    var fromUserName = message.fromUserName
-    var toUserName = message.toUserName
+    var fromUserName = message.FromUserName
+    var toUserName = message.ToUserName
+
 
     if(Array.isArray(content)) {
         type = 'news'
@@ -68,5 +69,6 @@ exports.tpl = function(content,message) {
     info.toUserName = fromUserName
     info.fromUserName = toUserName
 
-    return tpl.complied(info)
+    console.log('info:',info)
+    return tpl.compiled(info)
 }

@@ -6,12 +6,12 @@ var heredoc = require('heredoc')
 var tpl = heredoc(function () {
     /*
     <xml>
-    <ToUserName><![CDATA[ <%=toUserName%>]]></ToUserName>
-    <FromUserName><![CDATA[ <%=fromUserName%>]]></FromUserName>
-    <CreateTime> <%= createTime %></CreateTime>   
+    <ToUserName><![CDATA[<%= toUserName %>]]></ToUserName>
+    <FromUserName><![CDATA[<%= fromUserName%>]]></FromUserName>
+    <CreateTime><%= createTime %></CreateTime>   
     <MsgType><![CDATA[<%=msgType%>]]></MsgType>
     <% if (msgType === 'text') { %>
-        <Content><![<%= content %>]]></Content>
+        <Content><![CDATA[<%= content %>]]></Content>
     <% } else if (msgType === 'image')  { %>
         <MediaId><![CDATA[<%= content.media_id %>]]></MediaId>
     <% } else if (msgType === 'voice')  { %>
@@ -47,10 +47,12 @@ var tpl = heredoc(function () {
     <% } %>
     </xml>
     */
-})
+});
 
-var compiled = ejs.compile(tpl)
 
+var compiled = ejs.compile(tpl);
+
+// console.log('compiled:',compiled)
 exports = module.exports = {
     compiled:compiled
-}
+};

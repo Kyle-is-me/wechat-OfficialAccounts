@@ -8,15 +8,15 @@ exports.reply = function* (next) {
         if (message.Event === 'subscribe') {
             if (message.EventKey) {
                 console.log('扫二维码进来：' + message.EventKey + ' ' + message.ticket)
-            }
+            };
 
-            this.body = '恭喜你订阅了这个号\r\n' + '消息ID：' + message.MsgId
+            this.body = '嘿，你来啦~~~' 
         } else if (message.Event === 'unsubscribe') {
-            console.log('无情取关')
-            this.body = ''
+            console.log('无情取关');
+            this.body = '';
         }
     } else {
 
     }
-    yield next
+    yield next;
 }

@@ -45,11 +45,11 @@ module.exports = function (opts,handler) {
             console.log(content)
 
             var message = util.formatMessage(content.xml)
-            console.log(message)
+            console.log("oldmessage",message)
 
             this.weixin = message
 
-            yield handler.call(this,next)
+            yield handler.call(this,next);
 
             wechat.reply.call(this)
         }
